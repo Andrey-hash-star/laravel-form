@@ -1,6 +1,6 @@
 ## Форма обратной связи на Laravel.
 
-1. Склонировать проект с GitHab: Git clone https://github.com/Andrey-hash-star/laravel-form.git
+1. Клонировать проект с GitHab: Git clone https://github.com/Andrey-hash-star/laravel-form.git
 2. Загрузить зависимости через Composer: composer install
 3. Создать .env и скопировать туда информацию из env.example 
 4. Создать базу данных и прописать в .env соединение 
