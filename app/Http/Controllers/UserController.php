@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -39,7 +41,9 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        session()->flash('success', 'Регистрация пройдена');
+        session()->flash('success', 'Регистрация успешно пройдена');
+
+        Mail::to($request->email)->send(new ContactMail($request->name));
 
         Auth::login($user);
 
