@@ -24,4 +24,9 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/login', 'UserController@login')->name('login');
 });
 
-Route::get('/logout', 'UserController@logout')->name('logout')->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'MainController@home')->name('home');
+    Route::resource('/applications', 'AccountController');
+    Route::get('/logout', 'UserController@logout')->name('logout');
+});
+
