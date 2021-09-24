@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::group(['middleware' => 'guest'], function () {
-    Route::redirect('/', '/register', 301);
+    Route::redirect('/', '/register', 302);
     Route::get('/register', 'UserController@create')->name('register.create');
     Route::post('/register', 'UserController@store')->name('register.store');
     Route::get('/login', 'UserController@loginForm')->name('login.create');
